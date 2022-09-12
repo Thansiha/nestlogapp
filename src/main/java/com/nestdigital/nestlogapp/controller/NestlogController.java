@@ -39,11 +39,18 @@ public class NestlogController {
        String password = editemp.getPassword();
        return dao.updateById(id);
     }
-   //@CrossOrigin(origins = "*")
-    //@DeleteMapping("/delete/{id}")
-
-
-
+   @CrossOrigin(origins = "*")
+   @DeleteMapping("/delete/{id}")
+    public String delete(@PathVariable int id){
+        dao.deleteById(id);
+        return "deleted successfully";
+       }
+//    @CrossOrigin(origins = "*")
+//    @GetMapping("/viewall")
+//    public List <NestModel> viewallemp(){
+//        return (List<NestModel>) dao.findAll();}
+//
+//   }
 
 
 
