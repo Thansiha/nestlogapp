@@ -9,4 +9,6 @@ import java.util.List;
 public interface NestlogDao extends CrudRepository<NestModel, Integer> {
 @Query(value = "SELECT `id`, `designation`, `empcode`, `mobilenum`, `name`, `password`, `username` FROM `employees` WHERE 'id'=?1",nativeQuery = true)
     List<NestModel>searchById(int id);
+@Query(value = "SELECT `id`, `designation`, `empcode`, `mobilenum`, `name`, `password`, `username` FROM `employees` WHERE 'id'=?1",nativeQuery = true)
+    List<NestModel>updateById(int id);
 }

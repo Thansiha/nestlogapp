@@ -25,10 +25,25 @@ public class NestlogController {
         System.out.println(searchemp.getId());
         int id = searchemp.getId();
         return dao.searchById(id);
-
-
-
     }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping("/edit")
+    public List<NestModel> edit(@RequestBody NestModel editemp){
+       int id = editemp.getId();
+       int empcode = editemp.getEmpcode();
+       int mobnum = editemp.getMobilenum();
+       String name = editemp.getName();
+       String desig = editemp.getName();
+       String username = editemp.getUsername();
+       String password = editemp.getPassword();
+       return dao.updateById(id);
+    }
+   //@CrossOrigin(origins = "*")
+    //@DeleteMapping("/delete/{id}")
+
+
+
 
 
 
