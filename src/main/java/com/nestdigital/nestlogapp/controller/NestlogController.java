@@ -15,14 +15,19 @@ public class NestlogController {
     @PostMapping("/addemployee")
     public String addemp (@RequestBody NestModel addemployee){
         dao.save(addemployee);
-        return "employees added successfully";}
+        return "employees added successfully";
+    }
 
 
     @CrossOrigin(origins = "*")
     @GetMapping("/searchemp")
-    public List<NestModel>search(){
-        return (List<NestModel>)
-                dao.findById(id);
+    public List<NestModel> search(@RequestBody NestModel searchemp){
+        System.out.println(searchemp.getId());
+        int id = searchemp.getId();
+        return dao.searchById(id);
+
+
+
     }
 
 
