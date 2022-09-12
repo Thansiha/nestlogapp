@@ -45,13 +45,26 @@ public class NestlogController {
         dao.deleteById(id);
         return "deleted successfully";
        }
-//    @CrossOrigin(origins = "*")
-//    @GetMapping("/viewall")
-//    public List <NestModel> viewallemp(){
-//        return (List<NestModel>) dao.findAll();}
-//
-//   }
+    @CrossOrigin(origins = "*")
+    @GetMapping("/viewall")
+    public List <NestModel> viewallemp(){
+        return (List<NestModel>) dao.findAll();}
+
+    @CrossOrigin(origins = "*")
+   @GetMapping("/login")
+    public String login(@RequestBody NestModel loginemp){
+        if (dao.loginuser(loginemp.getUsername(),loginemp.getPassword()).size()>0){
+            return "{'status':'success'}";
+
+        }
+        else
+            return "{'status':'failed'}";
+    }
+
+   }
 
 
 
-}
+
+
+
